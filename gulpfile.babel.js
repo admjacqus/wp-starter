@@ -27,7 +27,7 @@ const paths = {
     dest: 'dist/assets/images'
   },
   scripts: {
-    src: ['src/assets/js/bundle.js', 'src/assets/js/admin.js'],
+    src: ['src/assets/js/bundle.js', 'src/assets/js/admin.js', 'src/assets/js/customize-preview.js'],
     dest: 'dist/assets/js'
   },
   other: {
@@ -71,8 +71,11 @@ export const scripts = () => {
           output: {
             filename: '[name].js'
           },
+          externals: {
+            jquery: 'jQuery'
+          },
           devtool: !PRODUCTION ? 'inline-source-map' : false,
-          mode: PRODUCTION ? 'production' : 'development' //add this
+          mode: PRODUCTION ? 'production' : 'development'
 }))
 .pipe(gulpif(PRODUCTION, uglify()))
 .pipe(gulp.dest(paths.scripts.dest));

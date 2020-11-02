@@ -1,5 +1,2 @@
 import './components/slider';
-
-let x = 30;
-
-console.log(x);
+import './components/navigation';
